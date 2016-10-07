@@ -22,11 +22,21 @@ class UserAgent
      */
     public function isSmartPhone()
     {
+        $ua = $this->ua;
         if (strpos($this->ua, 'iPhone')) {
             return true;
         }
 
         if (strpos($this->ua, 'Android') && strpos($this->ua, 'Mobile')) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public function isAndroid()
+    {
+        if (strpos($this->ua, 'Android')) {
             return true;
         }
 
