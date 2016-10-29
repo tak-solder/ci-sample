@@ -2,6 +2,7 @@
 
 use PHPUnit\Framework\TestCase;
 use App\UserAgent;
+use App\Request;
 
 /**
  * Class UserAgentTest
@@ -28,5 +29,16 @@ class UserAgentTest extends TestCase
 
         $this->assertTrue($ua->isSmartPhone());
         $this->assertTrue($ua->isAndroid());
+    }
+
+    /**
+     * AndroidのUA
+     */
+    public function testRequest()
+    {
+        $_SERVER['HTTP_USER_AGENT'] = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36';
+        $ua = new Request();
+
+        $this->assertFalse($ua->isSmartPhone());
     }
 }
