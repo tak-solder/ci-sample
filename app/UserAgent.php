@@ -22,7 +22,6 @@ class UserAgent
      */
     public function isSmartPhone()
     {
-        $ua = $this->ua;
         if (strpos($this->ua, 'iPhone')) {
             return true;
         }
